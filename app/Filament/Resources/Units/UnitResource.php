@@ -19,6 +19,8 @@ class UnitResource extends Resource
     protected static ?string $model = Unit::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static \UnitEnum|string|null $navigationGroup = 'Organisation';
+    protected static ?int $navigationSort = 10;
 
     public static function form(Schema $schema): Schema
     {
