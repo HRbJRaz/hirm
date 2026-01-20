@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Panel;
 use App\Models\Unit;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -51,4 +52,10 @@ class User extends Authenticatable
     }
 
     public function unit() { return $this->belongsTo(Unit::class); }
+
+    public function canAccessPanel(Panel $panel): bool
+        {
+            // return $panel->getId() === 'admin';
+            return true;
+        }
 }
